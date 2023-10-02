@@ -25,13 +25,14 @@ class Employee {
         this.name = name;
     };
 
-    displayInfo(){
+    displayInfo() {
         console.log(`Имя сотрудника ${this.name}`);
     }
 }
 
-class Manager extends Employee{
-    constructor(department) {
+class Manager extends Employee {
+    constructor(name, department) {
+        super(name);
         this.department = department;
     };
 
@@ -73,3 +74,34 @@ manager.displayInfo();
 // order.addProduct(product2);
 
 // console.log(order.getTotalPrice()); // Вывод: 600
+
+class Order {
+    constructor(orderNumber) {
+        this.orderNumber = orderNumber;
+        this.totalProducts = [];
+    }
+    addProduct(product) {
+        this.totalProducts.push(product);
+    }
+
+    getTotalPrice() {
+        const totalPrise = this.totalProducts.map((item) => item.price).reduce((acc, curr) => acc + curr);
+        return totalPrise;
+    }
+}
+
+class Product {
+    constructor(name, price) {
+        this.price = price;
+        this.name = name;
+    }
+}
+
+const order = new Order(12345);
+
+const product1 = new Product("Phone", 500);
+order.addProduct(product1);
+
+const product2 = new Product("Headphones", 100);
+order.addProduct(product2);
+console.log(order.getTotalPrice());
