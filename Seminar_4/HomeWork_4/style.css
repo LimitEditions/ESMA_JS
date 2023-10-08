@@ -1,0 +1,16 @@
+#myElement {
+  width: 100px;
+  height: 48px;
+  border: 1px solid #ff6a6a;
+  cursor: pointer;
+  background: #ff6a6a;
+  color: ghostwhite;
+}
+
+#super {
+  width: 100px;
+  height: 48px;
+  border-radius: 50%;
+  background: #4cdabb;
+  color: indigo;
+}
